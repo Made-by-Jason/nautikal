@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nautikal - Progressive House Artist</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=NTR:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap');
         
         * {
             margin: 0;
@@ -112,7 +112,7 @@
         }
         
         .hero-title {
-            font-family: 'NTR', monospace;
+            font-family: 'Orbitron', monospace;
             font-size: clamp(3rem, 8vw, 8rem);
             font-weight: 900;
             margin-bottom: 20px;
@@ -240,6 +240,253 @@
             margin: 60px auto;
             max-width: 600px;
             text-align: center;
+        }
+        
+        /* Beat Visualizer */
+        .visualizer {
+            display: flex;
+            justify-content: center;
+            align-items: end;
+            height: 80px;
+            gap: 3px;
+            margin: 20px 0;
+        }
+        
+        .bar {
+            width: 4px;
+            background: linear-gradient(to top, #ff0080, #00ffff);
+            border-radius: 2px;
+            transition: height 0.1s ease;
+            min-height: 5px;
+        }
+        
+        /* Fan Gallery */
+        .fan-gallery {
+            padding: 80px 50px;
+            background: rgba(0, 0, 0, 0.1);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+        
+        .fan-photo {
+            aspect-ratio: 1;
+            background: linear-gradient(45deg, #ff0080, #00ffff, #00ff00);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .fan-photo:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 15px 30px rgba(0, 255, 255, 0.3);
+        }
+        
+        .fan-photo::after {
+            content: attr(data-likes);
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+        }
+        
+        /* Interactive Tour Dates */
+        .tour-section {
+            padding: 80px 50px;
+        }
+        
+        .tour-dates {
+            max-width: 800px;
+            margin: 40px auto;
+        }
+        
+        .tour-date {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .tour-date:hover {
+            border-color: #00ffff;
+            transform: translateX(10px);
+            box-shadow: 0 10px 25px rgba(0, 255, 255, 0.2);
+        }
+        
+        .date-info {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .date-day {
+            font-family: 'Orbitron', monospace;
+            font-size: 24px;
+            color: #00ffff;
+            min-width: 60px;
+        }
+        
+        .date-details h4 {
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+        
+        .date-details p {
+            color: #888;
+            font-size: 14px;
+        }
+        
+        .ticket-btn {
+            background: linear-gradient(45deg, #ff0080, #00ffff);
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .ticket-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 0, 128, 0.4);
+        }
+        
+        /* Interactive Sound Pads */
+        .sound-pads {
+            padding: 80px 50px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+        
+        .pads-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            max-width: 600px;
+            margin: 40px auto;
+        }
+        
+        .sound-pad {
+            aspect-ratio: 1;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            user-select: none;
+        }
+        
+        .sound-pad:hover {
+            background: rgba(0, 255, 255, 0.2);
+            border-color: #00ffff;
+        }
+        
+        .sound-pad:active {
+            transform: scale(0.95);
+            background: rgba(0, 255, 255, 0.4);
+            box-shadow: 0 0 20px #00ffff;
+        }
+        
+        /* Newsletter Signup */
+        .newsletter {
+            padding: 60px 50px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(255, 0, 128, 0.1), rgba(0, 255, 255, 0.1));
+        }
+        
+        .newsletter-form {
+            max-width: 500px;
+            margin: 30px auto;
+            display: flex;
+            gap: 15px;
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            color: white;
+            font-size: 16px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .newsletter-input::placeholder {
+            color: #888;
+        }
+        
+        .newsletter-btn {
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #ff0080, #00ffff);
+            border: none;
+            border-radius: 25px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 0, 128, 0.3);
+        }
+        
+        /* Fan Counter */
+        .fan-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            min-width: 120px;
+        }
+        
+        .stat-number {
+            font-family: 'Orbitron', monospace;
+            font-size: 32px;
+            color: #00ffff;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            color: #888;
+            font-size: 14px;
         }
         
         .player-title {
@@ -442,6 +689,7 @@
                 <div class="track-name" id="trackName">Deep Currents</div>
                 <div class="track-artist">Nautikal</div>
             </div>
+            <div class="visualizer" id="visualizer"></div>
             <div class="player-controls">
                 <button class="control-btn" onclick="previousTrack()">⏮</button>
                 <button class="control-btn play-btn" onclick="togglePlay()" id="playBtn">▶</button>
@@ -457,6 +705,119 @@
         </div>
     </section>
     
+    <!-- Fan Gallery Section -->
+    <section class="fan-gallery">
+        <h2 class="section-title">Fan Gallery</h2>
+        <p style="text-align: center; color: #888; margin-bottom: 20px;">Share your Nautikal moments! Click to like photos from the community.</p>
+        <div class="gallery-grid">
+            <div class="fan-photo" data-likes="❤️ 127" onclick="likePhoto(this)">🎧</div>
+            <div class="fan-photo" data-likes="❤️ 89" onclick="likePhoto(this)">🌊</div>
+            <div class="fan-photo" data-likes="❤️ 203" onclick="likePhoto(this)">🎵</div>
+            <div class="fan-photo" data-likes="❤️ 156" onclick="likePhoto(this)">⚡</div>
+            <div class="fan-photo" data-likes="❤️ 94" onclick="likePhoto(this)">🚀</div>
+            <div class="fan-photo" data-likes="❤️ 178" onclick="likePhoto(this)">💫</div>
+        </div>
+    </section>
+    
+    <!-- Interactive Sound Pads -->
+    <section class="sound-pads" id="pads">
+        <h2 class="section-title">Beat Maker</h2>
+        <p style="text-align: center; color: #888; margin-bottom: 20px;">Create your own beats! Click the pads to layer different sounds.</p>
+        <div class="pads-grid">
+            <div class="sound-pad" onclick="playSound('kick')" data-sound="kick">🥁</div>
+            <div class="sound-pad" onclick="playSound('snare')" data-sound="snare">🎯</div>
+            <div class="sound-pad" onclick="playSound('hihat')" data-sound="hihat">✨</div>
+            <div class="sound-pad" onclick="playSound('bass')" data-sound="bass">🔊</div>
+            <div class="sound-pad" onclick="playSound('synth1')" data-sound="synth1">🎹</div>
+            <div class="sound-pad" onclick="playSound('synth2')" data-sound="synth2">🎼</div>
+            <div class="sound-pad" onclick="playSound('fx1')" data-sound="fx1">⚡</div>
+            <div class="sound-pad" onclick="playSound('fx2')" data-sound="fx2">🌊</div>
+            <div class="sound-pad" onclick="playSound('lead')" data-sound="lead">🎸</div>
+            <div class="sound-pad" onclick="playSound('pad')" data-sound="pad">🌌</div>
+            <div class="sound-pad" onclick="playSound('arp')" data-sound="arp">🔮</div>
+            <div class="sound-pad" onclick="playSound('vocal')" data-sound="vocal">🎤</div>
+        </div>
+        <div style="text-align: center; margin-top: 30px;">
+            <button class="cta-button" onclick="clearAllSounds()">Clear All</button>
+        </div>
+    </section>
+    
+    <!-- Tour Dates Section -->
+    <section class="tour-section" id="shows">
+        <h2 class="section-title">Upcoming Shows</h2>
+        <div class="fan-stats">
+            <div class="stat-item">
+                <span class="stat-number" id="fanCount">47.2K</span>
+                <span class="stat-label">Fans</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">156</span>
+                <span class="stat-label">Shows Played</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">23</span>
+                <span class="stat-label">Countries</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">8.9M</span>
+                <span class="stat-label">Streams</span>
+            </div>
+        </div>
+        <div class="tour-dates">
+            <div class="tour-date" onclick="showTicketInfo('Miami')">
+                <div class="date-info">
+                    <div class="date-day">MAR<br>15</div>
+                    <div class="date-details">
+                        <h4>Ultra Music Festival</h4>
+                        <p>Miami, FL • Bayfront Park</p>
+                    </div>
+                </div>
+                <button class="ticket-btn">Get Tickets</button>
+            </div>
+            <div class="tour-date" onclick="showTicketInfo('Amsterdam')">
+                <div class="date-info">
+                    <div class="date-day">APR<br>22</div>
+                    <div class="date-details">
+                        <h4>ADE Festival</h4>
+                        <p>Amsterdam, NL • Ziggo Dome</p>
+                    </div>
+                </div>
+                <button class="ticket-btn">Get Tickets</button>
+            </div>
+            <div class="tour-date" onclick="showTicketInfo('Ibiza')">
+                <div class="date-info">
+                    <div class="date-day">JUN<br>08</div>
+                    <div class="date-details">
+                        <h4>Pacha Ibiza</h4>
+                        <p>Ibiza, ES • Main Room</p>
+                    </div>
+                </div>
+                <button class="ticket-btn">Get Tickets</button>
+            </div>
+            <div class="tour-date" onclick="showTicketInfo('Tomorrowland')">
+                <div class="date-info">
+                    <div class="date-day">JUL<br>20</div>
+                    <div class="date-details">
+                        <h4>Tomorrowland</h4>
+                        <p>Boom, BE • Mainstage</p>
+                    </div>
+                </div>
+                <button class="ticket-btn">Get Tickets</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <h2 class="section-title">Stay Connected</h2>
+        <p style="color: #888; margin-bottom: 20px;">Get exclusive tracks, behind-the-scenes content, and early access to tickets!</p>
+        <div class="newsletter-form">
+            <input type="email" class="newsletter-input" placeholder="Enter your email for exclusive content..." id="emailInput">
+            <button class="newsletter-btn" onclick="subscribeNewsletter()">Join the Crew</button>
+        </div>
+        <p style="color: #555; font-size: 12px; margin-top: 15px;">Join 47,000+ fans already in the loop!</p>
+    </section>
+
     <!-- Contact Section -->
     <section class="contact-section" id="contact">
         <h2 class="section-title">Connect</h2>
@@ -506,6 +867,27 @@
         let currentTrack = 0;
         const tracks = ['Deep Currents', 'Electric Tide', 'Cosmic Drift'];
         let progress = 35;
+        let visualizerInterval;
+        
+        // Create visualizer bars
+        function createVisualizer() {
+            const visualizer = document.getElementById('visualizer');
+            for (let i = 0; i < 32; i++) {
+                const bar = document.createElement('div');
+                bar.className = 'bar';
+                bar.style.height = '5px';
+                visualizer.appendChild(bar);
+            }
+        }
+        
+        // Animate visualizer
+        function animateVisualizer() {
+            const bars = document.querySelectorAll('.bar');
+            bars.forEach(bar => {
+                const height = Math.random() * 70 + 5;
+                bar.style.height = height + 'px';
+            });
+        }
         
         function togglePlay() {
             const playBtn = document.getElementById('playBtn');
@@ -515,10 +897,14 @@
             playBtn.textContent = isPlaying ? '⏸' : '▶';
             
             if (isPlaying) {
+                // Start visualizer
+                visualizerInterval = setInterval(animateVisualizer, 100);
+                
                 // Simulate progress animation
                 const interval = setInterval(() => {
                     if (!isPlaying) {
                         clearInterval(interval);
+                        clearInterval(visualizerInterval);
                         return;
                     }
                     progress += 0.5;
@@ -529,6 +915,12 @@
                     }
                     progressFill.style.width = progress + '%';
                 }, 100);
+            } else {
+                clearInterval(visualizerInterval);
+                // Reset bars to minimum height
+                document.querySelectorAll('.bar').forEach(bar => {
+                    bar.style.height = '5px';
+                });
             }
         }
         
@@ -544,6 +936,81 @@
             document.getElementById('trackName').textContent = tracks[currentTrack];
             progress = 0;
             document.getElementById('progressFill').style.width = '0%';
+        }
+        
+        // Fan gallery functionality
+        function likePhoto(element) {
+            const currentLikes = element.getAttribute('data-likes');
+            const likeCount = parseInt(currentLikes.match(/\d+/)[0]);
+            const newCount = likeCount + 1;
+            element.setAttribute('data-likes', `❤️ ${newCount}`);
+            
+            // Add animation
+            element.style.transform = 'scale(1.1) rotate(5deg)';
+            setTimeout(() => {
+                element.style.transform = 'scale(1.05) rotate(2deg)';
+            }, 200);
+            
+            // Update fan count
+            updateFanCount();
+        }
+        
+        // Sound pad functionality
+        const activeSounds = new Set();
+        
+        function playSound(soundType) {
+            const pad = document.querySelector(`[data-sound="${soundType}"]`);
+            
+            if (activeSounds.has(soundType)) {
+                // Stop sound
+                activeSounds.delete(soundType);
+                pad.style.background = 'rgba(255, 255, 255, 0.1)';
+                pad.style.boxShadow = 'none';
+            } else {
+                // Play sound
+                activeSounds.add(soundType);
+                pad.style.background = 'rgba(0, 255, 255, 0.3)';
+                pad.style.boxShadow = '0 0 20px #00ffff';
+                
+                // Visual feedback
+                pad.style.transform = 'scale(0.9)';
+                setTimeout(() => {
+                    pad.style.transform = 'scale(1)';
+                }, 100);
+            }
+        }
+        
+        function clearAllSounds() {
+            activeSounds.clear();
+            document.querySelectorAll('.sound-pad').forEach(pad => {
+                pad.style.background = 'rgba(255, 255, 255, 0.1)';
+                pad.style.boxShadow = 'none';
+            });
+        }
+        
+        // Tour dates functionality
+        function showTicketInfo(city) {
+            alert(`🎫 Tickets for ${city} show!\n\nThis would redirect to the ticketing platform. Get ready for an amazing progressive house experience!`);
+        }
+        
+        // Newsletter functionality
+        function subscribeNewsletter() {
+            const email = document.getElementById('emailInput').value;
+            if (email && email.includes('@')) {
+                alert(`🎉 Welcome to the Nautikal crew, ${email}!\n\nYou'll receive exclusive tracks, behind-the-scenes content, and early ticket access.`);
+                document.getElementById('emailInput').value = '';
+                updateFanCount();
+            } else {
+                alert('Please enter a valid email address!');
+            }
+        }
+        
+        // Update fan count
+        function updateFanCount() {
+            const fanCountElement = document.getElementById('fanCount');
+            const currentCount = parseFloat(fanCountElement.textContent);
+            const newCount = (currentCount + 0.1).toFixed(1);
+            fanCountElement.textContent = newCount + 'K';
         }
         
         function openLink(platform) {
@@ -577,7 +1044,10 @@
         });
         
         // Initialize particles when page loads
-        window.addEventListener('load', createParticles);
+        window.addEventListener('load', () => {
+            createParticles();
+            createVisualizer();
+        });
         
         // Add parallax effect to hero section
         window.addEventListener('scroll', () => {
@@ -588,5 +1058,5 @@
             }
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'977d003fb2cecba6',t:'MTc1NjY0ODI2OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'977d855b84632b6c',t:'MTc1NjY1MzcyMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
